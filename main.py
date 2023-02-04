@@ -18,6 +18,7 @@ SCOPES = ["https://www.googleapis.com/auth/calendar"]
 CONFIG = dotenv_values(".env")
 CALENDAR_ID = CONFIG["CALENDAR_ID"]
 DATE = datetime.datetime.strptime(CONFIG["DATE"], "%Y-%m-%d")
+QUERY = CONFIG["QUERY"]
 
 
 def main():
@@ -25,7 +26,7 @@ def main():
     params = {
         "calendarId": CALENDAR_ID,
         "timeMax": DATE.isoformat() + "Z",
-        "q": "MagicScout",
+        "q": QUERY,
         "singleEvents": True,
     }
     events = list_all_pages(client, params)

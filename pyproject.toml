@@ -19,13 +19,15 @@ isort = "^5.12.0"
 ruff = "^0.0.241"
 
 [tool.black]
-target-version = ["py39"]
+target-version = ["py311"]
 
 [tool.isort]
 profile = "black"
 known_first_party = ""
 known_third_party = ""
 
+[tool.ruff]
+target-version = "py311"
 
 [build-system]
 requires = ["poetry-core"]

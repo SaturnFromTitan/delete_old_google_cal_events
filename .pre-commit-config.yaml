@@ -1,0 +1,35 @@
+repos:
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        language: system
+        entry: poetry run isort
+        types: [python]
+      - id: black
+        name: black
+        language: system
+        entry: poetry run black
+        types: [python]
+      - id: ruff
+        name: ruff
+        language: system
+        entry: poetry run ruff --fix
+        types: [python]
+      - id: poetry-check
+        name: poetry-check
+        language: system
+        entry: poetry check
+        files: ^pyproject.toml$
+        pass_filenames: false
+      - id: poetry-lock-check
+        name: check-poetry-lock
+        entry: poetry lock
+        language: system
+        pass_filenames: false
+        args: [ "--check" ]
+        files: |
+          (?x)^(
+              pyproject.toml|
+              poetry.lock
+          )$

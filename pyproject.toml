@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "delete-old-google-cal-events"
+version = "0.1.0"
+description = ""
+authors = ["Martin Winkel <martin.winkel.pps@gmail.com>"]
+readme = "README.md"
+packages = [{include = "delete_old_google_cal_events"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+google-api-python-client = "^2.76.0"
+google-auth-httplib2 = "^0.1.0"
+google-auth-oauthlib = "^0.8.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.0.4"
+black = "^23.1.0"
+isort = "^5.12.0"
+ruff = "^0.0.241"
+
+[tool.black]
+target-version = ["py39"]
+
+[tool.isort]
+profile = "black"
+known_first_party = ""
+known_third_party = ""
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

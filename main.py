@@ -35,8 +35,8 @@ def main():
     print("Unique summaries:", {event["summary"] for event in events})
 
     dates = sorted({event["start"]["dateTime"] for event in events})
-    print("Earliest date:", max(dates))
-    print("Latest date:", min(dates))
+    print("Earliest date:", min(dates))
+    print("Latest date:", max(dates))
 
     for event in events:
         delete_event(client, calendar_id=CALENDAR_ID, event_id=event["id"])
